@@ -1,0 +1,14 @@
+<%=	form_for :payment, url: payments_path do |f| %>
+  <%=	 render 'partialErrors' %>
+  <p>
+    <%=	f.label :id_loan %>
+    <%=	f.text_field :id_loan %>
+  </p>
+  <p>
+    <%=	f.label :amount %>
+    <%=	f.text_field :amount %>
+  </p>
+  <p>
+    <%=	f.submit %>
+  </p>
+<% end %>

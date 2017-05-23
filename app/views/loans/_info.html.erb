@@ -1,0 +1,30 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered center-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Client Name</th>
+        <th>Amount</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%	@loans.each do |loan|  %>
+          <tr>
+            <td><%=	link_to loan.id,loan %></td>
+            <td><%=	loan.client_name %></td>
+            <td><%=	loan.amount %></td>
+            <td><%=	link_to 'Edit',edit_loan_path(loan) %></td>
+            <td><%=	link_to 'Delete', loan, method: :delete, data:{
+                confirm:  "Are you sure?" } %></td>
+            <td><%=	link_to "Pay", new_payment_path %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

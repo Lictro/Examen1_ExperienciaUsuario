@@ -1,0 +1,15 @@
+<%=	form_for :loan, url: loans_path do |f| %>
+  <%=	render 'partial'  %>
+  <p>
+    <%=	f.label :client_name %>
+    <%=	f.text_field :client_name %>
+  </p>
+  <p>
+    <%=	f.label :amount %>
+    <%=	f.text_field :amount %>
+  </p>
+
+  <p>
+    <%=	f.submit %>
+  </p>
+<% end %>

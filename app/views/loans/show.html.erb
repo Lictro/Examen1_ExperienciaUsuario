@@ -1,0 +1,48 @@
+<p>
+  <strong>Client Name</strong>
+  <%=	@loan.client_name %>
+</p>
+<p>
+  <strong>Amount</strong>
+  <%=	@loan.amount %>
+</p>
+<p>
+  <strong>Loan Type</strong>
+  <%=	@loan.loan_type %>
+</p>
+<h2>Balance(must be 0)</h2>
+<h2><%=	@loan.amount %> - <%=	@loan.total_pays(@loan.id)%> = <%= @loan.balance(@loan.id,@loan.amount) %></h2>
+
+<% if @loan.total_pays(@loan.id)>0 %>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered center-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Id_Loan</th>
+        <th>Amount_Payment</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @payments.each do |payment| %>
+      <tr>
+        <td><%=	payment.id %></td>
+        <td><%=	payment.id_loan %></td>
+        <td><%=	payment.amount %></td>
+        <td><%=	link_to 'Delete',payment, method: :delete, data:{
+            confirm:  "Are you sure?" } %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% else %>
+    <h2>There isn't paymentes</h2>
+<% end %>
+<p>
+<%=	link_to 'New', new_payment_path  %>
+<%=	link_to 'Back', loans_path %>
+</p>

@@ -1,0 +1,12 @@
+<%	if @payment.errors.any?  %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <strong>Oh snap!</strong> <%= pluralize(@payment.errors.count, "error") %> have prevented the payment from being recorded.
+      </div>
+      <ul>
+        <% @payment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<%	end  %>
